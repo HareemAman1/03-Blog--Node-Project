@@ -1,0 +1,32 @@
+<html lang="en">
+<!-- ////////// PARTIALS ////////// -->
+<%- include('./3partials/head.ejs')    %>
+<body>
+    <%- include('./3partials/nav.ejs')    %>
+    
+    <div class="blogs content">
+        <h2>All Blogs</h2>
+        
+        <!-- PASSING VALUES -->
+        <% if (blogs.length > 0) { %>
+            <% blogs.forEach(blog => { %>     
+
+              <!-- ////////// 2-ROUTE PARAMETER ////////// -->
+              <a class="single" href="/blogs/<%= blog._id %>">
+
+              <h3 class="title"><%= blog.title %></h3>
+              <p class="snippet"><%= blog.snippet %></p>  
+              
+            </a>
+
+            <% }) %>
+          <% } else { %>
+            <p>The is no blogs to display</p>
+          <% } %>
+
+    </div>
+
+    <%- include('./3partials/foot.ejs')    %>
+    
+</body>
+</html>
